@@ -104,7 +104,7 @@ function MetricCard({ label, value, accent }: { label: string; value: string; ac
 
 // --- Improvement row ---
 
-function ImpactCard({ label, before, after, highlight }: { label: string; before: string; after: string; highlight?: boolean }) {
+function ImpactCard({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
     <div
       style={{
@@ -114,22 +114,20 @@ function ImpactCard({ label, before, after, highlight }: { label: string; before
         background: highlight ? "var(--surface-offset)" : "var(--surface)",
         display: "flex",
         flexDirection: "column",
-        gap: "12px",
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        gap: "6px",
       }}
     >
-      <p style={{ fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink-secondary)" }}>
-        {label}
-      </p>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0 16px" }}>
-        <p style={{ fontSize: "0.65rem", color: "var(--ink-tertiary)", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>Before</p>
-        <div />
-        <p style={{ fontSize: "0.65rem", color: "var(--ink-tertiary)", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>After</p>
-        
-        <p style={{ fontSize: "1.05rem", fontWeight: 500, color: "var(--ink-secondary)", fontVariantNumeric: "tabular-nums", alignSelf: "center" }}>{before}</p>
-        <div style={{ color: "var(--symbio)", fontWeight: 300, fontSize: "1.25rem", opacity: 0.8, display: "flex", alignItems: "center", justifyContent: "center" }}>→</div>
-        <p style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--ink)", fontVariantNumeric: "tabular-nums", alignSelf: "center" }}>{after}</p>
+      <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "2px" }}>
+        <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink-tertiary)", opacity: 0.8 }}>
+          {label}
+        </p>
+        <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink)" }}>
+          {value}
+        </p>
       </div>
+      <p style={{ fontSize: "0.78rem", color: "var(--ink-tertiary)", marginTop: "4px", lineHeight: 1.4, maxWidth: "340px" }}>
+        Projected annual performance with Symbio-verified integration, reflecting a significant optimization of your current environmental footprint.
+      </p>
     </div>
   );
 }
@@ -158,8 +156,7 @@ export default function CompanyDetailPage() {
     const afterTotal = company.receipt.after.total[i];
     return {
       label: beforeTotal.label,
-      before: beforeTotal.value,
-      after: afterTotal?.value ?? "—",
+      value: afterTotal?.value ?? "—",
     };
   });
 
@@ -236,17 +233,24 @@ export default function CompanyDetailPage() {
               background: "var(--surface-offset)",
               border: "1px solid var(--border)",
               height: "100%",
+              overflow: "hidden",
+              position: "relative",
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: "12px",
+              padding: "40px",
             }}
           >
-            <Leaf size={32} style={{ color: "oklch(0% 0 0 / 0.12)" }} />
-            <span style={{ fontSize: "0.8rem", fontWeight: 500, color: "var(--ink-tertiary)" }}>
-              Company image
-            </span>
+            <img
+              src="/site-logo-grown-bio.webp"
+              alt={company.name}
+              style={{
+                width: "100%",
+                height: "auto",
+                objectFit: "contain",
+                maxWidth: "200px",
+              }}
+            />
           </div>
 
           {/* Right: company info */}
@@ -317,10 +321,10 @@ export default function CompanyDetailPage() {
           {/* Header Row */}
           <div style={{ marginBottom: "28px" }}>
             <h2 style={{ fontSize: "1.25rem", fontWeight: 600, letterSpacing: "-0.02em", marginBottom: "8px" }}>
-              Impact breakdown
+              Projected outcome
             </h2>
-            <p style={{ fontSize: "0.875rem", color: "var(--ink-tertiary)", maxWidth: "420px" }}>
-              Key performance indicators before and after adoption. These metrics represent the verified net impact of integrating {company!.name} into your value chain.
+            <p style={{ fontSize: "0.875rem", color: "var(--ink-tertiary)", maxWidth: "460px" }}>
+              Estimated performance indicators upon full integration of {company!.name} into your value chain. These projections are modeled based on your current operational volume and reflect the potential for significant environmental optimization across key resource areas.
             </p>
           </div>
           <div style={{ display: "flex", alignItems: "flex-end", paddingBottom: "24px" }}>
@@ -335,8 +339,7 @@ export default function CompanyDetailPage() {
               <ImpactCard
                 key={metric.label}
                 label={metric.label}
-                before={metric.before}
-                after={metric.after}
+                value={metric.value}
                 highlight
               />
             ))}
@@ -348,16 +351,20 @@ export default function CompanyDetailPage() {
               background: "var(--surface-offset)",
               border: "1px solid var(--border)",
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: "12px",
+              overflow: "hidden",
             }}
           >
-            <Leaf size={32} style={{ color: "oklch(0% 0 0 / 0.12)" }} />
-            <span style={{ fontSize: "0.8rem", fontWeight: 500, color: "var(--ink-tertiary)" }}>
-              Operational Proof
-            </span>
+            <img
+              src="/2.png"
+              alt="Operational Proof"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
           </div>
 
           {/* Attribution Footer */}
@@ -432,7 +439,7 @@ export default function CompanyDetailPage() {
             <button className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
               Request introduction <ArrowUpRight size={14} />
             </button>
-            <Link href="/directory" className="btn-secondary">
+            <Link href="/directory" className="btn-secondary" style={{ background: "white" }}>
               Browse more
             </Link>
           </div>
