@@ -43,9 +43,7 @@ export default function Header() {
         <Link href="/directory" style={{ fontWeight: pathname === "/directory" ? 600 : 500, color: pathname === "/directory" ? "var(--ink)" : undefined }}>
           Directory
         </Link>
-        <Link href="/calculator" style={{ fontWeight: pathname === "/calculator" ? 600 : 500, color: pathname === "/calculator" ? "var(--ink)" : undefined }}>
-          Calculator
-        </Link>
+
         <Link href="/ledger" style={{ fontWeight: pathname === "/ledger" ? 600 : 500, color: pathname === "/ledger" ? "var(--ink)" : undefined }}>
           Ledger
         </Link>

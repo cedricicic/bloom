@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${sora.variable} ${onest.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${sora.variable} ${onest.variable}`} suppressHydrationWarning>
         {children}
       </body>
     </html>
