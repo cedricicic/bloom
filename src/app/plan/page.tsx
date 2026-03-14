@@ -44,7 +44,7 @@ const initialNodes = [
 ];
 
 // --- INITIAL EDGES (Connecting the journey) ---
-const initialEdges = [
+const initialEdges: Edge[] = [
   // Public Flow
   { id: 'e-p1-p2', source: 'p1', target: 'p2', animated: true },
   { id: 'e-p2-p3', source: 'p2', target: 'p3', animated: true },
