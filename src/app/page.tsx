@@ -49,12 +49,13 @@ export default function Home() {
           <Link href="/ledger" style={{ fontWeight: 500 }}>
             Ledger
           </Link>
-          <button
+          <Link
+            href="/profile"
             className="btn-primary"
             style={{ padding: "8px 20px", fontSize: "0.85rem" }}
           >
             Get started
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -445,7 +446,7 @@ export default function Home() {
               gap: "12px",
             }}
           >
-            <button className="btn-primary">Get started free</button>
+            <Link href="/profile" className="btn-primary">Get started free</Link>
             <button className="btn-secondary">Request a demo</button>
           </div>
         </div>

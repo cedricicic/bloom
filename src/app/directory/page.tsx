@@ -113,9 +113,9 @@ export default function DirectoryPage() {
           </Link>
           <Link href="/calculator" style={{ fontWeight: 500 }}>Calculator</Link>
           <Link href="/ledger" style={{ fontWeight: 500 }}>Ledger</Link>
-          <button className="btn-primary" style={{ padding: "8px 20px", fontSize: "0.85rem" }}>
+          <Link href="/profile" className="btn-primary" style={{ padding: "8px 20px", fontSize: "0.85rem" }}>
             Get started
-          </button>
+          </Link>
         </div>
       </nav>
 

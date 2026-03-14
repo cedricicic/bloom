@@ -199,9 +199,9 @@ export default function CompanyDetailPage() {
           </Link>
           <Link href="/calculator" style={{ fontWeight: 500 }}>Calculator</Link>
           <Link href="/ledger" style={{ fontWeight: 500 }}>Ledger</Link>
-          <button className="btn-primary" style={{ padding: "8px 20px", fontSize: "0.85rem" }}>
+          <Link href="/profile" className="btn-primary" style={{ padding: "8px 20px", fontSize: "0.85rem" }}>
             Get started
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -377,7 +377,7 @@ export default function CompanyDetailPage() {
       </section>
 
       {/* Full receipts */}
-      <section style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "56px 24px 0" }}>
+      <section style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "56px 24px 80px" }}>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 600, letterSpacing: "-0.02em", marginBottom: "8px" }}>
           Verification receipts
         </h2>
@@ -418,33 +418,11 @@ export default function CompanyDetailPage() {
           />
         </div>
 
-        {/* Tagline */}
-        <div style={{ textAlign: "center", marginTop: "24px" }}>
-          <p style={{ fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink-tertiary)" }}>
-            {company.receipt.tagline}
-          </p>
-        </div>
+   
       </section>
 
       {/* CTA */}
-      <section style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "56px 24px 80px" }}>
-        <div style={{ background: "var(--surface-offset)", borderRadius: "12px", padding: "40px", textAlign: "center" }}>
-          <h3 style={{ fontSize: "1.15rem", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: "8px" }}>
-            Interested in partnering with {company.name}?
-          </h3>
-          <p style={{ fontSize: "0.875rem", color: "var(--ink-secondary)", marginBottom: "24px", maxWidth: "420px", margin: "0 auto 24px" }}>
-            Get connected through Symbio and start reducing your supply chain&apos;s environmental impact.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-            <button className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              Request introduction <ArrowUpRight size={14} />
-            </button>
-            <Link href="/directory" className="btn-secondary" style={{ background: "white" }}>
-              Browse more
-            </Link>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Footer */}
       <footer style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "32px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--border)", fontSize: "0.825rem", color: "var(--ink-tertiary)" }}>
