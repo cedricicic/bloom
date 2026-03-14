@@ -399,36 +399,57 @@ function ReceiptModal({ company, onClose }: { company: Company; onClose: () => v
 
 function CompanyCard({ company, onOpen }: { company: Company; onOpen: () => void }) {
   return (
-    <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "var(--radius)", padding: "24px", display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: "0.7rem", fontWeight: 500, color: "var(--ink-tertiary)", letterSpacing: "0.02em" }}>{company.category}</span>
+    <div style={{ background: "var(--surface-offset)", border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      {/* Background Image */}
+      <div style={{ 
+        height: "100px", 
+        background: `var(--surface-offset) url(${company.bgImage}) center / cover no-repeat`, 
+        position: "relative" 
+      }} />
 
-      </div>
-      <div>
-        <h3 style={{ fontSize: "1.05rem", fontWeight: 600, marginBottom: "6px" }}>{company.name}</h3>
-        <p style={{ fontSize: "0.85rem", lineHeight: 1.55, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+      <div style={{ padding: "0 24px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
+        {/* Profile Image & Title Container */}
+        <div style={{ display: "flex", alignItems: "flex-end", gap: "16px", marginTop: "-32px", position: "relative", zIndex: 1 }}>
+          <div style={{ 
+            width: "64px", 
+            height: "64px", 
+            borderRadius: "50%", 
+            backgroundColor: "#ffffff",
+            backgroundImage: `url(${company.profileImage})`,
+            backgroundPosition: "center",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            border: "4px solid var(--surface-offset)",
+            boxShadow: "inset 0 0 0 1px var(--border)",
+            flexShrink: 0
+          }} />
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 600, margin: 0, paddingBottom: "4px" }}>{company.name}</h3>
+        </div>
+
+        <p style={{ fontSize: "0.85rem", lineHeight: 1.55, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, paddingTop: "8px" }}>
           {company.description}
         </p>
-      </div>
 
-      <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-        {company.industry.map((ind) => (
-          <span key={ind} style={{ fontSize: "0.7rem", fontWeight: 500, padding: "3px 10px", borderRadius: "14px", border: "1px solid var(--border)", color: "var(--ink-tertiary)" }}>
-            {ind}
-          </span>
-        ))}
+        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "auto", paddingTop: "8px" }}>
+          {company.industry.map((ind) => (
+            <span key={ind} style={{ fontSize: "0.7rem", fontWeight: 500, padding: "3px 10px", borderRadius: "14px", border: "1px solid var(--border)", color: "var(--ink-tertiary)" }}>
+              {ind}
+            </span>
+          ))}
+        </div>
+        <button
+          onClick={onOpen}
+          style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
+            marginTop: "8px", padding: "10px", borderRadius: "var(--radius)", border: "1px solid var(--ink)",
+            background: "var(--ink)", fontSize: "0.825rem", fontWeight: 500, fontFamily: "inherit",
+            color: "white", cursor: "pointer", transition: "all 0.15s ease",
+            width: "100%"
+          }}
+        >
+          View profile <ArrowUpRight size={14} />
+        </button>
       </div>
-      <button
-        onClick={onOpen}
-        style={{
-          display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
-          marginTop: "auto", padding: "10px", borderRadius: "var(--radius)", border: "1px solid var(--border)",
-          background: "transparent", fontSize: "0.825rem", fontWeight: 500, fontFamily: "inherit",
-          color: "var(--ink)", cursor: "pointer", transition: "border-color 0.15s ease",
-        }}
-      >
-        View profile <ArrowUpRight size={14} />
-      </button>
     </div>
   );
 }

@@ -202,7 +202,7 @@ export default function CompanyDetailPage() {
             }}
           >
             <img
-              src="/site-logo-grown-bio.webp"
+              src={company.profileImage}
               alt={company.name}
               style={{
                 width: "100%",

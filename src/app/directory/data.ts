@@ -18,6 +18,8 @@ export type ReceiptSide = {
 export type Company = {
   id: string;
   name: string;
+  profileImage: string;
+  bgImage: string;
   description: string;
   category: string;
   industry: string[];
@@ -41,8 +43,68 @@ export type Company = {
 
 export const COMPANIES: Company[] = [
   {
+    id: "0",
+    name: "Grown Bio",
+    profileImage: "/companies/Grown_bio.webp",
+    bgImage: "/companies/grownbio_package.webp",
+    description:
+      "Mycelium-derived alternatives to fossil-based foams for packaging, building insulation, and interior design materials.",
+    category: "Packaging",
+    industry: ["Consumer Goods", "Construction"],
+    location: "Netherlands",
+    impactLabel: "Fossil foam replacement",
+    co2Reduction: "10,200 tons CO₂e/yr",
+    costRange: "$$",
+    verified: true,
+    popular: true,
+    dateAdded: "2026-03-10",
+    receipt: {
+      verificationId: "SYM-0099",
+      date: "2026-03-10",
+      before: {
+        sections: [
+          { heading: "Materials", lines: [
+            { label: "CO₂e from packaging", value: "15,400 t/yr" },
+            { label: "EPS foam used", value: "7,500 t/yr" },
+            { label: "Water usage", value: "1.8M m³/yr" },
+          ]},
+          { heading: "Operations", lines: [
+            { label: "Energy (fossil)", value: "65%" },
+            { label: "Waste to landfill", value: "34%" },
+          ]},
+        ],
+        total: [
+          { label: "CO₂e", value: "15,400 t/yr" },
+          { label: "Landfill waste", value: "7,500 t/yr" },
+          { label: "Water used", value: "1.8M m³/yr" },
+        ],
+      },
+      after: {
+        sections: [
+          { heading: "Materials", lines: [
+            { label: "CO₂e from packaging", value: "5,200 t/yr" },
+            { label: "Mycelium used", value: "7,500 t/yr" },
+            { label: "Water usage", value: "1.2M m³/yr" },
+          ]},
+          { heading: "Operations", lines: [
+            { label: "Energy (renewable)", value: "95%" },
+            { label: "Waste to landfill", value: "< 1%" },
+          ]},
+        ],
+        total: [
+          { label: "CO₂e", value: "5,200 t/yr" },
+          { label: "Landfill waste", value: "0 t/yr" },
+          { label: "Water used", value: "1.2M m³/yr" },
+        ],
+      },
+      tagline: "Grown, not manufactured",
+    },
+  },
+  {
     id: "1",
-    name: "Ecovative Design",
+    name: "Ecovative",
+    profileImage: "/companies/Ecovative_logos.png",
+    bgImage: "/companies/Ecovative_package.png",
     description:
       "Mycelium-based packaging and materials that replace expanded polystyrene foam across consumer electronics and food shipping.",
     category: "Packaging",
@@ -98,7 +160,9 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "2",
-    name: "Pulpex",
+    name: "Watershed",
+    profileImage: "/companies/Watershed_logo.png",
+    bgImage: "/companies/Watershed_package.png",
     description:
       "Scalable paper-based bottle technology for liquid consumer goods, replacing single-use plastic across the FMCG sector.",
     category: "Packaging",
@@ -154,7 +218,9 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "3",
-    name: "GreenFlow Logistics",
+    name: "Enclose",
+    profileImage: "/companies/enclose_logo.png",
+    bgImage: "/companies/enclose_package.png",
     description:
       "Route-optimized last-mile delivery using electric fleets and consolidated shipment algorithms for urban markets.",
     category: "Logistics",
@@ -210,7 +276,9 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "4",
-    name: "TerraPack Solutions",
+    name: "Noissue",
+    profileImage: "/companies/noissue.png",
+    bgImage: "/companies/noissue_packaging.png",
     description:
       "Compostable mailer bags and void-fill made from agricultural waste streams. Certified home-compostable in 90 days.",
     category: "Packaging",
@@ -266,7 +334,9 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "5",
-    name: "SolarEdge Industrial",
+    name: "Sendle",
+    profileImage: "/companies/sendle_logo.png",
+    bgImage: "/companies/sendle_package.png",
     description:
       "On-site solar and battery storage systems designed for warehouse and manufacturing facility rooftops.",
     category: "Renewable Energy",
@@ -322,7 +392,9 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "6",
-    name: "Circulor",
+    name: "TerraCycle",
+    profileImage: "/companies/terracycle.png",
+    bgImage: "/companies/terracycle_packaging.png",
     description:
       "Supply chain traceability platform using real-time data to verify ethical sourcing and carbon footprint across raw materials.",
     category: "Carbon Reduction",
@@ -374,174 +446,6 @@ export const COMPANIES: Company[] = [
         ],
       },
       tagline: "See every link in the chain",
-    },
-  },
-  {
-    id: "7",
-    name: "Renewcell",
-    description:
-      "Textile-to-textile recycling technology that dissolves used cotton and viscose garments into a new raw material called Circulose.",
-    category: "Waste Reduction",
-    industry: ["Fashion", "Textiles"],
-    location: "Sweden",
-    impactLabel: "Up to 80% textile waste diverted",
-    co2Reduction: "15,800 tons CO₂e/yr",
-    costRange: "$$",
-    verified: true,
-    popular: true,
-    dateAdded: "2025-10-22",
-    receipt: {
-      verificationId: "SYM-0037",
-      date: "2025-10-22",
-      before: {
-        sections: [
-          { heading: "Raw Materials", lines: [
-            { label: "CO₂e from fibre", value: "24,000 t/yr" },
-            { label: "Virgin cotton used", value: "6,100 t/yr" },
-            { label: "Textile waste generated", value: "7,200 t/yr" },
-          ]},
-          { heading: "Resources", lines: [
-            { label: "Water consumed", value: "4.8M m³/yr" },
-            { label: "Chemical usage", value: "1,200 t/yr" },
-          ]},
-        ],
-        total: [
-          { label: "CO₂e", value: "24,000 t/yr" },
-          { label: "Textile waste", value: "7,200 t/yr" },
-          { label: "Water consumed", value: "4.8M m³/yr" },
-        ],
-      },
-      after: {
-        sections: [
-          { heading: "Raw Materials", lines: [
-            { label: "CO₂e from fibre", value: "8,200 t/yr" },
-            { label: "Circulose used", value: "6,100 t/yr" },
-            { label: "Textile waste generated", value: "1,440 t/yr" },
-          ]},
-          { heading: "Resources", lines: [
-            { label: "Water consumed", value: "860K m³/yr" },
-            { label: "Chemical usage", value: "430 t/yr" },
-          ]},
-        ],
-        total: [
-          { label: "CO₂e", value: "8,200 t/yr" },
-          { label: "Textile waste", value: "1,440 t/yr" },
-          { label: "Water consumed", value: "860K m³/yr" },
-        ],
-      },
-      tagline: "Wear it again, differently",
-    },
-  },
-  {
-    id: "8",
-    name: "CarbonCure Technologies",
-    description:
-      "Injects captured CO₂ into fresh concrete during mixing, permanently mineralizing it while improving compressive strength.",
-    category: "Carbon Reduction",
-    industry: ["Construction", "Infrastructure"],
-    location: "Canada",
-    impactLabel: "Up to 25% concrete emissions cut",
-    co2Reduction: "42,000 tons CO₂e/yr",
-    costRange: "$",
-    verified: true,
-    popular: true,
-    dateAdded: "2025-07-18",
-    receipt: {
-      verificationId: "SYM-0012",
-      date: "2025-07-18",
-      before: {
-        sections: [
-          { heading: "Production", lines: [
-            { label: "CO₂e from concrete", value: "56,000 t/yr" },
-            { label: "Cement per batch", value: "320 kg/m³" },
-            { label: "Compressive strength", value: "Base" },
-          ]},
-          { heading: "Scale", lines: [
-            { label: "Plants active", value: "780" },
-            { label: "CO₂ captured", value: "0 t/yr" },
-          ]},
-        ],
-        total: [
-          { label: "CO₂e", value: "56,000 t/yr" },
-          { label: "CO₂ sequestered", value: "0 t/yr" },
-          { label: "Cost impact", value: "Baseline" },
-        ],
-      },
-      after: {
-        sections: [
-          { heading: "Production", lines: [
-            { label: "CO₂e from concrete", value: "14,000 t/yr" },
-            { label: "Cement per batch", value: "280 kg/m³" },
-            { label: "Compressive strength", value: "+8%" },
-          ]},
-          { heading: "Scale", lines: [
-            { label: "Plants active", value: "780" },
-            { label: "CO₂ captured", value: "42,000 t/yr" },
-          ]},
-        ],
-        total: [
-          { label: "CO₂e", value: "14,000 t/yr" },
-          { label: "CO₂ sequestered", value: "42,000 t/yr" },
-          { label: "Cost impact", value: "Neutral" },
-        ],
-      },
-      tagline: "Concrete proof of change",
-    },
-  },
-  {
-    id: "9",
-    name: "Bower Collective",
-    description:
-      "Reusable container subscription service for household and personal care products, eliminating single-use packaging entirely.",
-    category: "Waste Reduction",
-    industry: ["FMCG", "Personal Care"],
-    location: "United Kingdom",
-    impactLabel: "Zero single-use packaging",
-    co2Reduction: "3,200 tons CO₂e/yr",
-    costRange: "$",
-    verified: false,
-    popular: false,
-    dateAdded: "2026-03-01",
-    receipt: {
-      verificationId: "SYM-0078",
-      date: "2026-03-01",
-      before: {
-        sections: [
-          { heading: "Packaging", lines: [
-            { label: "CO₂e from packaging", value: "4,800 t/yr" },
-            { label: "Single-use containers", value: "580K/yr" },
-            { label: "Plastic waste", value: "420 t/yr" },
-          ]},
-          { heading: "Model", lines: [
-            { label: "Container reuse", value: "0x" },
-            { label: "Return infrastructure", value: "None" },
-          ]},
-        ],
-        total: [
-          { label: "CO₂e", value: "4,800 t/yr" },
-          { label: "Containers wasted", value: "580K/yr" },
-          { label: "Plastic to landfill", value: "420 t/yr" },
-        ],
-      },
-      after: {
-        sections: [
-          { heading: "Packaging", lines: [
-            { label: "CO₂e from packaging", value: "1,600 t/yr" },
-            { label: "Reusable containers", value: "48K active" },
-            { label: "Plastic waste", value: "0 t/yr" },
-          ]},
-          { heading: "Model", lines: [
-            { label: "Container reuse", value: "24x avg" },
-            { label: "Return rate", value: "89%" },
-          ]},
-        ],
-        total: [
-          { label: "CO₂e", value: "1,600 t/yr" },
-          { label: "Containers wasted", value: "0/yr" },
-          { label: "Plastic to landfill", value: "0 t/yr" },
-        ],
-      },
-      tagline: "Refill, return, repeat",
     },
   },
 ];
