@@ -357,7 +357,7 @@ export default function CompanyDetailPage() {
             }}
           >
             <img
-              src="/2.png"
+              src="/2.webp"
               alt="Operational Proof"
               style={{
                 width: "100%",

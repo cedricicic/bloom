@@ -418,12 +418,12 @@ function ReceiptModal({ company, onClose }: { company: Company; onClose: () => v
                 alignItems: "center",
                 gap: "6px",
                 fontSize: "0.825rem",
-                fontWeight: 500,
-                color: "var(--ink)",
+                fontWeight: 600,
+                background: "var(--ink)",
+                color: "white",
                 padding: "10px 24px",
                 borderRadius: "var(--radius)",
-                border: "1px solid var(--border)",
-                transition: "border-color 0.15s ease",
+                transition: "opacity 0.15s ease",
               }}
             >
               Show more <ArrowUpRight size={14} />
@@ -442,11 +442,7 @@ function CompanyCard({ company, onOpen }: { company: Company; onOpen: () => void
     <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "var(--radius)", padding: "24px", display: "flex", flexDirection: "column", gap: "16px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontSize: "0.7rem", fontWeight: 500, color: "var(--ink-tertiary)", letterSpacing: "0.02em" }}>{company.category}</span>
-        {company.verified && (
-          <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.7rem", fontWeight: 500, color: "var(--symbio)" }}>
-            <Leaf size={12} /> Verified
-          </span>
-        )}
+
       </div>
       <div>
         <h3 style={{ fontSize: "1.05rem", fontWeight: 600, marginBottom: "6px" }}>{company.name}</h3>
