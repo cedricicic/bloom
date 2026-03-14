@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowLeft, Leaf, MapPin, ArrowUpRight } from "lucide-react";
 import { COMPANIES, type ReceiptLine, type ReceiptSection, type ReceiptSide } from "../data";
+import Header from "@/components/Header";
 
 // --- Receipt helpers (shared visual language with directory) ---
 
@@ -162,48 +163,7 @@ export default function CompanyDetailPage() {
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--surface)" }}>
-      {/* Navigation */}
-      <nav
-        style={{
-          maxWidth: "var(--max-width)",
-          margin: "0 auto",
-          padding: "20px 24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link
-          href="/"
-          style={{
-            fontFamily: "var(--font-sora)",
-            fontWeight: 700,
-            fontSize: "1.15rem",
-            letterSpacing: "-0.02em",
-            color: "var(--ink)",
-          }}
-        >
-          Symbio
-        </Link>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "32px",
-            fontSize: "0.875rem",
-            color: "var(--ink-secondary)",
-          }}
-        >
-          <Link href="/directory" style={{ fontWeight: 600, color: "var(--ink)" }}>
-            Directory
-          </Link>
-          <Link href="/calculator" style={{ fontWeight: 500 }}>Calculator</Link>
-          <Link href="/ledger" style={{ fontWeight: 500 }}>Ledger</Link>
-          <Link href="/profile" className="btn-primary" style={{ padding: "8px 20px", fontSize: "0.85rem" }}>
-            Get started
-          </Link>
-        </div>
-      </nav>
+      <Header />
 
       {/* Back link */}
       <section style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "8px 24px 0" }}>

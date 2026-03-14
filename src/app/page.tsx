@@ -3,61 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Leaf, Shield, BarChart3, ArrowUpRight } from "lucide-react";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <main style={{ minHeight: "100vh", background: "var(--surface)" }}>
-      {/* Navigation */}
-      <nav
-        style={{
-          maxWidth: "var(--max-width)",
-          margin: "0 auto",
-          padding: "20px 24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link
-          href="/"
-          style={{
-            fontFamily: "var(--font-sora)",
-            fontWeight: 700,
-            fontSize: "1.15rem",
-            letterSpacing: "-0.02em",
-            color: "var(--ink)",
-          }}
-        >
-          Symbio
-        </Link>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "32px",
-            fontSize: "0.875rem",
-            color: "var(--ink-secondary)",
-          }}
-        >
-          <Link href="/directory" style={{ fontWeight: 500 }}>
-            Directory
-          </Link>
-          <Link href="/calculator" style={{ fontWeight: 500 }}>
-            Calculator
-          </Link>
-          <Link href="/ledger" style={{ fontWeight: 500 }}>
-            Ledger
-          </Link>
-          <Link
-            href="/dashboard"
-            className="btn-primary"
-            style={{ padding: "8px 20px", fontSize: "0.85rem" }}
-          >
-            Get started
-          </Link>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero */}
       <section

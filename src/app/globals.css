@@ -11,7 +11,7 @@
 
   /* Surfaces */
   --surface: #FFFFFF;
-  --surface-offset: oklch(97.5% 0.005 60);
+  --surface-offset: oklch(98.5% 0.004 60);
   --border: oklch(0% 0 0 / 0.06);
 
   /* Layout */

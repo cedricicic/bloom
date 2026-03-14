@@ -13,6 +13,7 @@ import {
   Edge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import Header from "@/components/Header";
 
 // --- STYLING VARS FOR SWIMLANES ---
 const publicStyle = { background: '#f0f9ff', border: '2px solid #0284c7', borderRadius: '8px', padding: '10px', width: 200, color: 'black' };
@@ -80,12 +81,14 @@ export default function AppFlowMap() {
   );
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#fafafa' }}>
-      <h1 style={{ position: 'absolute', zIndex: 10, padding: '20px', fontFamily: 'sans-serif', fontWeight: 'bold', color: 'black' }}>
+    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#fafafa', display: 'flex', flexDirection: 'column' }}>
+      <Header />
+      <h1 style={{ position: 'absolute', top: 80, zIndex: 10, padding: '20px', fontFamily: 'sans-serif', fontWeight: 'bold', color: 'black' }}>
         Ecosystem Flow: The Circular Accountability Model
       </h1>
-      <ReactFlow
-        nodes={nodes}
+      <div style={{ flex: 1, position: 'relative' }}>
+        <ReactFlow
+          nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
@@ -94,8 +97,8 @@ export default function AppFlowMap() {
       >
         <Controls />
         <MiniMap />
-        <Background gap={12} size={1} />
-      </ReactFlow>
+        </ReactFlow>
+      </div>
     </div>
   );
 }

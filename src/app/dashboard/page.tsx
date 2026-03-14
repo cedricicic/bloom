@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { User, Bell, ArrowUpRight } from "lucide-react";
+import Header from "@/components/Header";
 
 // --- Dashboard Layout & Card Component ---
 
@@ -26,47 +27,7 @@ const DashboardCard = ({ children, style }: { children: React.ReactNode; style?:
 export default function DashboardPage() {
   return (
     <main style={{ minHeight: "100vh", background: "var(--surface)" }}>
-      {/* Navigation */}
-      <nav
-        style={{
-          maxWidth: "var(--max-width)",
-          margin: "0 auto",
-          padding: "20px 24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link
-          href="/"
-          style={{
-            fontFamily: "var(--font-sora)",
-            fontWeight: 700,
-            fontSize: "1.15rem",
-            letterSpacing: "-0.02em",
-            color: "var(--ink)",
-          }}
-        >
-          Symbio
-        </Link>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "32px",
-            fontSize: "0.875rem",
-            color: "var(--ink-secondary)",
-          }}
-        >
-          <Link href="/directory" style={{ fontWeight: 500 }}>Directory</Link>
-          <Link href="/calculator" style={{ fontWeight: 500 }}>Calculator</Link>
-          <Link href="/ledger" style={{ fontWeight: 500 }}>Ledger</Link>
-          <Link href="/dashboard" style={{ fontWeight: 600, color: "var(--ink)" }}>Dashboard</Link>
-          <Link href="/profile" className="btn-primary" style={{ padding: "8px 20px", fontSize: "0.85rem" }}>
-            Get started
-          </Link>
-        </div>
-      </nav>
+      <Header />
 
       {/* ─── Dashboard Content ─── */}
       <div style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "40px 24px 80px" }}>
@@ -74,10 +35,10 @@ export default function DashboardPage() {
         {/* Header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "32px" }}>
           <div>
-            <h1 style={{ fontSize: "2rem", fontFamily: "var(--font-sora)", fontWeight: 600, letterSpacing: "-0.02em", marginBottom: "4px" }}>
+            <h1 style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: "12px" }}>
               Impact Overview
             </h1>
-            <p style={{ color: "var(--ink-secondary)", fontSize: "0.9rem" }}>
+            <p style={{ fontSize: "1.05rem", maxWidth: "540px", color: "var(--ink-secondary)" }}>
               Active integration with <span style={{ fontWeight: 500, color: "var(--ink)" }}>Ecovative Design</span>
             </p>
           </div>
@@ -147,7 +108,7 @@ export default function DashboardPage() {
                   // First 12 months high (before), next 12 months lower (after)
                   const isBefore = i < 12;
                   const targetH = isBefore ? 100 : 35; 
-                  const variance = Math.random() * 20 - 10;
+                  const variance = Math.sin(i * 1234.5) * 10;
                   const h1 = targetH + variance; // Dark bar
                   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
