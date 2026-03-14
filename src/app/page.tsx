@@ -50,7 +50,7 @@ export default function Home() {
             Ledger
           </Link>
           <Link
-            href="/profile"
+            href="/dashboard"
             className="btn-primary"
             style={{ padding: "8px 20px", fontSize: "0.85rem" }}
           >
